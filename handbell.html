@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="67d8f16d98c83e744261498eadb8a8b74a8ba49f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="siasaem-logo.png" type="image/png">
+  <title>핸드벨 수업자료 - 시아쌤음악교육</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background-color: #FFE3DB;
+      border-bottom: 1.5px solid #1a1a1a;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    .header-left img { height: 42px; cursor: pointer; }
+    .header-title { font-size: 17px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.3px; }
+    .back-btn {
+      font-size: 12px; color: #1a1a1a; text-decoration: none;
+      font-weight: 700; border: 1.5px solid #1a1a1a;
+      padding: 7px 16px; border-radius: 100px; white-space: nowrap;
+      transition: background-color 0.15s;
+    }
+    .back-btn:hover { background-color: #1a1a1a; color: #fff; }
+    .hero {
+      background-color: #FFE3DB;
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 30px; font-weight: 900; color: #1a1a1a; margin-bottom: 12px; letter-spacing: -0.8px; }
+    .hero p { font-size: 15px; color: #555; line-height: 1.9; font-weight: 400; }
+    .content { max-width: 760px; margin: 0 auto; padding: 56px 24px; }
+    .version-label {
+      font-size: 15px; font-weight: 700; color: #1a1a1a;
+      margin: 36px 0 14px 0; padding-left: 14px;
+      border-left: 3px solid #1a1a1a; letter-spacing: -0.2px;
+    }
+    .version-label:first-child { margin-top: 0; }
+    .item-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
+    .item {
+      border: 1.5px solid #e8e8e8; border-radius: 12px;
+      padding: 14px 18px; display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 10px;
+      background-color: #fff; transition: border-color 0.15s, background-color 0.15s;
+    }
+    .item:hover { border-color: #1a1a1a; background-color: #f8f8f8; }
+    .item-info { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+    .item-badge {
+      background-color: #1a1a1a; color: white;
+      font-size: 11px; font-weight: 700; padding: 4px 10px;
+      border-radius: 100px; white-space: nowrap; flex-shrink: 0;
+    }
+    .item-title { font-size: 13px; color: #333; line-height: 1.6; font-weight: 500; }
+    .item-buttons { display: flex; gap: 8px; flex-shrink: 0; }
+    .preview-btn {
+      padding: 7px 14px; background-color: #fff; color: #1a1a1a;
+      border: 1.5px solid #1a1a1a; border-radius: 100px;
+      font-size: 12px; font-weight: 700; text-decoration: none;
+      white-space: nowrap; transition: background-color 0.15s;
+    }
+    .preview-btn:hover { background-color: #f5f5f5; }
+    .buy-btn {
+      padding: 7px 14px; background-color: #1a1a1a; color: white;
+      border-radius: 100px; font-size: 12px; font-weight: 700;
+      text-decoration: none; white-space: nowrap; transition: background-color 0.15s;
+    }
+    .buy-btn:hover { background-color: #333; }
+    .contact-section { background-color: #FFE3DB; padding: 64px 24px; text-align: center; }
+    .contact-section h2 { font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; }
+    .contact-section p { font-size: 14px; color: #555; line-height: 1.9; margin-bottom: 28px; font-weight: 400; }
+    .kakao-btn {
+      display: inline-block; padding: 14px 36px;
+      background-color: #FEE500; color: #3C1E1E;
+      border-radius: 100px; font-size: 15px; font-weight: 700;
+      text-decoration: none; transition: background-color 0.15s;
+    }
+    .kakao-btn:hover { background-color: #f0d800; }
+    footer {
+      background-color: #1a1a1a; color: #fff;
+      text-align: center; padding: 36px 24px;
+      font-size: 13px; font-weight: 400; line-height: 1.8;
+    }
+    footer p { margin-bottom: 4px; }
+    @media (max-width: 768px) {
+      .item { flex-direction: column; align-items: flex-start; }
+      .item-buttons { width: 100%; justify-content: flex-end; }
+      .hero h1 { font-size: 22px; }
+      .header-title { font-size: 15px; }
+      .header-left img { height: 34px; }
+      .header-inner { height: 60px; padding: 0 20px; }
+      .content { padding: 40px 20px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "시아쌤음악교육",
+  "description": "유초등·성인·시니어 전문 음악교육. 뮤직어스 어린이 음악신문, 클래식 클라씨 피아노 방문레슨, 음악수업자료 제공.",
+  "url": "https://siasaem.co.kr",
+  "email": "engel0301@naver.com",
+  "founder": "박경민",
+  "serviceType": ["피아노 개인레슨", "어린이 음악신문", "음악수업자료"],
+  "areaServed": "서울 강남·서초·송파·용산"
+}
+</script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-left">
+        <img src="siasaem-logo.png" alt="시아쌤음악교육" onclick="location.href='materials.html'">
+        <span class="header-title">🔔 핸드벨 수업</span>
+      </div>
+      <a href="materials.html" class="back-btn">← 수업자료 목록</a>
+    </div>
+  </header>
+  <div class="hero">
+    <h1>🔔 핸드벨 수업자료</h1>
+    <p>PPT · 수업 지도안 포함<br>차시별로 구매하세요!</p>
+  </div>
+  <div class="content">
+    <div class="version-label">📌 핸드벨 수업</div>
+    <div class="item-list">
+      <div class="item"><div class="item-info"><span class="item-badge">1차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223851085704" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">2차시</span><span class="item-title">PPT + 수업 지도안 + 음원</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223857720282" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">3차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223859257838" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">4차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223859288440" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">5차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223861410244" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">6차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223871129008" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">7차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223883618911" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">8차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223978394132" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">9차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223978394132" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">10차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223978406131" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">11차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223978415491" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">12-13차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223988932546" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">14차시</span><span class="item-title">PPT + 수업 지도안 + 작곡가 활동지</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/223997419820" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">15차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/224035733523" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">16차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/224040157905" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">17차시</span><span class="item-title">PPT + 수업 지도안</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/224066406497" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+      <div class="item"><div class="item-info"><span class="item-badge">18차시</span><span class="item-title">PPT + 수업 지도안 + 학생 활동지</span></div><div class="item-buttons"><a href="https://m.blog.naver.com/engel0301/224150946281" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/Fr7HYCRU" target="_blank" class="buy-btn">구매하기</a></div></div>
+    </div>
+  </div>
+  <div class="contact-section">
+    <h2>자료 문의하기 💬</h2>
+    <p>원하시는 수업 내용이 있다면 문의 주세요!</p>
+    <a href="https://open.kakao.com/me/Musiceducation" target="_blank" class="kakao-btn">💬 카카오톡으로 문의하기</a>
+  </div>
+  <footer>
+    <p style="font-weight:700; font-size:15px; margin-bottom:8px;">시아쌤음악교육 · 음악수업자료</p>
+    <p>대표자: 박경민 · 사업자등록번호: 378-15-02910
+© 2026 시아쌤음악교육 · All rights reserved</p>
+    <p style="margin-top:8px; color:#aaa;">문의: open.kakao.com/me/Musiceducation</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="67d8f16d98c83e744261498eadb8a8b74a8ba49f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="siasaem-logo.png" type="image/png">
+  <title>시아쌤음악교육</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 헤더 */
+    header {
+      background-color: #FFE3DB;
+      border-bottom: 1.5px solid #1a1a1a;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      height: 72px;
+      gap: 16px;
+    }
+    .header-inner img {
+      height: 44px;
+      cursor: pointer;
+    }
+    .header-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.3px;
+      cursor: pointer;
+    }
+
+    /* 히어로 배너 */
+    .hero-banner {
+      background-color: #FFE3DB;
+      text-align: center;
+      padding: 80px 24px 64px;
+    }
+    .hero-banner h1 {
+      font-size: 38px;
+      font-weight: 900;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+      line-height: 1.3;
+    }
+    .hero-banner p {
+      font-size: 17px;
+      color: #555;
+      line-height: 1.9;
+      font-weight: 400;
+    }
+
+    /* 카드 섹션 */
+    .cards-section {
+      background-color: #fff;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .cards-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 48px;
+      letter-spacing: -0.3px;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto 48px auto;
+    }
+    .card {
+      background: #fff;
+      border: 1.5px solid #1a1a1a;
+      border-radius: 16px;
+      box-shadow: 3px 3px 0px #1a1a1a;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+      color: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px #1a1a1a;
+    }
+    .card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 18px 16px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+      line-height: 1.5;
+      letter-spacing: -0.2px;
+    }
+    .card p {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .card .tag {
+      display: inline-block;
+      margin-top: auto;
+      padding: 6px 14px;
+      background-color: #FFE3DB;
+      color: #1a1a1a;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    /* 구분선 */
+    .divider {
+      max-width: 1000px;
+      margin: 0 auto 48px auto;
+      border: none;
+      border-top: 1px dashed #ddd;
+    }
+
+    /* 연락처 & SNS */
+    .contact-section {
+      background-color: #FFE3DB;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 48px;
+      letter-spacing: -0.3px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .contact-card {
+      background-color: #fff;
+      border: 1.5px solid #1a1a1a;
+      border-radius: 16px;
+      padding: 28px 16px;
+      text-align: center;
+      text-decoration: none;
+      color: #1a1a1a;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .contact-card .icon { font-size: 30px; margin-bottom: 10px; }
+    .contact-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .contact-card p {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* 대표 소개 */
+    .intro-section {
+      background-color: #fdf5f6;
+      padding: 80px 24px;
+    }
+    .intro-section h2 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 48px;
+      letter-spacing: -0.3px;
+    }
+    .intro-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .profile-photo img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 2px solid #1a1a1a;
+    }
+    .profile-info h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+    .profile-info .intro-text {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+    .profile-category { margin-bottom: 20px; }
+    .profile-category h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+      border-left: 3px solid #FFE3DB;
+      padding-left: 10px;
+      margin-bottom: 10px;
+      letter-spacing: 0.2px;
+    }
+    .profile-category ul { list-style: none; padding-left: 14px; }
+    .profile-category ul li {
+      font-size: 13px;
+      color: #555;
+      line-height: 2;
+      font-weight: 400;
+    }
+    .profile-category ul li::before { content: "· "; color: #1a1a1a; }
+
+    /* 푸터 */
+    footer {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 36px 24px;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+    footer p { margin-bottom: 4px; }
+
+    /* 모바일 반응형 */
+    @media (max-width: 768px) {
+      .header-inner { padding: 0; height: 60px; }
+      .header-inner img { height: 36px; }
+      .header-title { font-size: 15px; }
+      .hero-banner { padding: 56px 20px 48px; }
+      .hero-banner h1 { font-size: 26px; }
+      .hero-banner p { font-size: 15px; }
+      .cards-section { padding: 56px 20px; }
+      .cards-section h2 { font-size: 19px; margin-bottom: 32px; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .contact-section { padding: 56px 20px; }
+      .contact-section h2 { font-size: 19px; margin-bottom: 32px; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .intro-section { padding: 56px 20px; }
+      .intro-inner { flex-direction: column; align-items: center; text-align: center; gap: 32px; }
+      .profile-category h4 { text-align: left; }
+      .profile-category ul { text-align: left; }
+    }
+    @media (max-width: 480px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-banner h1 { font-size: 22px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "시아쌤음악교육",
+  "description": "유초등·성인·시니어 전문 음악교육. 뮤직어스 어린이 음악신문, 클래식 클라씨 피아노 방문레슨, 음악수업자료 제공.",
+  "url": "https://siasaem.co.kr",
+  "email": "engel0301@naver.com",
+  "founder": "박경민",
+  "serviceType": ["피아노 개인레슨", "어린이 음악신문", "음악수업자료"],
+  "areaServed": "서울 강남·서초·송파·용산"
+}
+</script>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header>
+    <div class="header-inner">
+      <img src="siasaem-logo.png" alt="시아쌤음악교육 로고"
+        onclick="window.scrollTo(0,0)"
+        style="cursor:pointer;">
+      <span class="header-title" onclick="window.scrollTo(0,0)">시아쌤 음악교육</span>
+    </div>
+  </header>
+
+  <!-- 히어로 배너 -->
+  <div class="hero-banner">
+    <h1>시아쌤 음악교육 🎹</h1>
+    <p>음악을 느끼고, 이해하고, 즐기는 경험<br>유초등부터 성인·시니어까지 함께합니다</p>
+  </div>
+
+  <!-- 카드 섹션 -->
+  <div class="cards-section">
+    <h2>어떤 콘텐츠를 찾고 계신가요?</h2>
+    <div class="cards-grid">
+      <a href="classi.html" class="card">
+        <img src="card1.png" alt="클래식 클라씨 레슨">
+        <div class="card-body">
+          <h3>클래식 클라씨 레슨</h3>
+          <p>유초등·성인·시니어<br>전문 방문 개인레슨</p>
+          <span class="tag">레슨 알아보기 →</span>
+        </div>
+      </a>
+      <a href="musicearth.html" class="card">
+        <img src="card2.png" alt="뮤직어스">
+        <div class="card-body">
+          <h3>뮤직어스</h3>
+          <p>유초등 전문<br>어린이 음악신문</p>
+          <span class="tag">구독 신청하기 →</span>
+        </div>
+      </a>
+      <a href="materials.html" class="card">
+        <img src="card3.png" alt="음악수업자료">
+        <div class="card-body">
+          <h3>학교/기관 음악 강사<br>수업 자료 구매</h3>
+          <p>늘봄/방과후/학원 특강 등<br>PPT PDF 자료 모음</p>
+          <span class="tag">자료 보러가기 →</span>
+        </div>
+      </a>
+    </div>
+
+    <hr class="divider">
+
+    <div class="cards-grid">
+      <a href="lessonnote.html" class="card">
+        <img src="card4.png" alt="시아쌤 레슨 노트">
+        <div class="card-body">
+          <h3>시아쌤 레슨 노트</h3>
+          <p>체계화된 레슨의 시작</p>
+          <span class="tag">자세히 보기 →</span>
+        </div>
+      </a>
+      <a href="ebook.html" class="card">
+        <img src="card5.png" alt="시아쌤 전자책">
+        <div class="card-body">
+          <h3>시아쌤 전자책</h3>
+          <p>개인레슨에 대한 모든 것</p>
+          <span class="tag">자세히 보기 →</span>
+        </div>
+      </a>
+      <a href="materials2.html" class="card">
+        <img src="card6.png" alt="시아쌤 피아노 개인레슨 지도안&워크지">
+        <div class="card-body">
+          <h3>시아쌤 피아노<br>개인레슨 지도안&워크지</h3>
+          <p>바로 쓰는 레슨 자료</p>
+          <span class="tag">자세히 보기 →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 연락처 & SNS -->
+  <div class="contact-section">
+    <h2>🔗 시아쌤 채널 모아보기</h2>
+    <div class="contact-grid">
+      <a href="https://www.youtube.com/@m_mini913" target="_blank" class="contact-card">
+        <div class="icon">📺</div>
+        <h3>유튜브</h3>
+        <p>시아쌤 채널<br>음악 교육 영상</p>
+      </a>
+      <a href="https://www.instagram.com/m_mini913?igsh=amVrNzN0bnQ2dW9z&utm_source=qr" target="_blank" class="contact-card">
+        <div class="icon">📸</div>
+        <h3>인스타그램</h3>
+        <p>@m_mini913<br>일상 & 교육 소식</p>
+      </a>
+      <a href="https://blog.naver.com/engel0301" target="_blank" class="contact-card">
+        <div class="icon">📝</div>
+        <h3>네이버 블로그</h3>
+        <p>음악 교육 정보<br>레슨 이야기</p>
+      </a>
+      <a href="https://open.kakao.com/me/Musiceducation" target="_blank" class="contact-card">
+        <div class="icon">💬</div>
+        <h3>시아쌤음악교육<br>카카오톡</h3>
+        <p>수업 & 자료 문의</p>
+      </a>
+      <a href="mailto:engel0301@naver.com" class="contact-card">
+        <div class="icon">📧</div>
+        <h3>이메일</h3>
+        <p>engel0301@naver.com</p>
+      </a>
+      <a href="https://open.kakao.com/o/gYRfKJFg" target="_blank" class="contact-card">
+        <div class="icon">👩‍🏫</div>
+        <h3>개인레슨 선생님<br>전용 네트워크</h3>
+        <p>관련 종사자 외 입장 불가</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- 대표 소개 -->
+  <div class="intro-section">
+    <h2>대표 소개</h2>
+    <div class="intro-inner">
+      <div class="profile-photo">
+        <img src="profile.jpeg" alt="프로필 사진">
+      </div>
+      <div class="profile-info">
+        <h3>박경민</h3>
+        <p class="intro-text">시아쌤음악교육 대표</p>
+        <div class="profile-category">
+          <h4>학력</h4>
+          <ul>
+            <li>덕원예술고등학교 졸업</li>
+            <li>숙명여자대학교 피아노과 졸업</li>
+            <li>숙명여자대학교 교육대학원 음악교육전공 석사 졸업</li>
+          </ul>
+        </div>
+        <div class="profile-category">
+          <h4>주요 경력</h4>
+          <ul>
+            <li>Rumania Oltenia Philharmonic Orchestra 협연</li>
+            <li>2018 ~ 2025 제자연주회 매년 개최 (총 8회)</li>
+            <li>온라인 플랫폼 "꾸그" 음악 강사</li>
+            <li>서울 초등학교 음악 강사</li>
+            <li>밀크 T 중학 음악 강사</li>
+            <li>유튜브 "시아쌤" 채널 운영</li>
+            <li>유초등 전문 개인레슨 11년 경험</li>
+          </ul>
+        </div>
+        <div class="profile-category">
+          <h4>자격증</h4>
+          <ul>
+            <li>국가공인 문화예술교육사 자격증</li>
+            <li>중·고등 정교사 교원자격증 2급</li>
+            <li>피아노아카데미아 피아노교육 전문가 자격증</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p style="font-weight:700; font-size:15px; margin-bottom:8px;">시아쌤음악교육</p>
+    <p>대표자: 박경민 · 사업자등록번호: 378-15-02910</p>
+    <p>문의: engel0301@naver.com</p>
+    <p style="margin-top:8px; color:#aaa;">대표자: 박경민 · 사업자등록번호: 378-15-02910
+© 2026 시아쌤음악교육 · All rights reserved</p>
+  </footer>
+
+</body>
+</html>

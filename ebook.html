@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="siasaem-logo.png" type="image/png">
+  <title>시아쌤 전자책 | 피아노 개인레슨 전자책</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      background-color: #ffffff; color: #1a1a1a;
+      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background-color: #FFE3DB; border-bottom: 1.5px solid #1a1a1a;
+      padding: 0 32px; position: sticky; top: 0; z-index: 1000;
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; display: flex;
+      align-items: center; justify-content: space-between; height: 68px;
+    }
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    .header-left img { height: 42px; cursor: pointer; }
+    .header-title { font-size: 17px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.3px; }
+    .back-btn {
+      font-size: 12px; color: #1a1a1a; text-decoration: none; font-weight: 700;
+      border: 1.5px solid #1a1a1a; padding: 7px 16px; border-radius: 100px;
+      white-space: nowrap; transition: background-color 0.15s;
+    }
+    .back-btn:hover { background-color: #1a1a1a; color: #fff; }
+
+    .hero {
+      background-color: #FFE3DB; padding: 72px 24px 56px; text-align: center;
+    }
+    .hero h1 { font-size: 34px; font-weight: 900; color: #1a1a1a; margin-bottom: 14px; letter-spacing: -1px; line-height: 1.35; }
+    .hero p { font-size: 16px; color: #555; line-height: 1.9; font-weight: 400; }
+
+    .content { max-width: 760px; margin: 0 auto; padding: 64px 24px; }
+
+    /* 이미지 */
+    .ebook-images { display: flex; flex-direction: column; gap: 16px; margin-bottom: 56px; }
+    .ebook-images img { width: 100%; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+    /* 소개 글 */
+    .intro-text {
+      font-size: 15px; color: #444; line-height: 2;
+      font-weight: 400; margin-bottom: 48px;
+      text-align: center;
+    }
+    .intro-text p { margin-bottom: 16px; }
+    .intro-text strong { color: #1a1a1a; font-weight: 700; }
+
+    /* 목차 */
+    .toc-section { margin-bottom: 48px; }
+    .toc-section h2 {
+      font-size: 20px; font-weight: 700; color: #1a1a1a;
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 2px solid #1a1a1a; letter-spacing: -0.3px;
+    }
+    .toc-item {
+      background-color: #f8f8f8; border-radius: 12px;
+      padding: 16px 20px; margin-bottom: 10px;
+      border-left: 3px solid #1a1a1a;
+    }
+    .toc-item h3 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+    .toc-item ul { list-style: none; padding-left: 8px; }
+    .toc-item ul li { font-size: 13px; color: #555; line-height: 2; font-weight: 400; }
+    .toc-item ul li::before { content: "· "; color: #1a1a1a; }
+
+    /* FAQ */
+    .faq-section { margin-bottom: 48px; }
+    .faq-section h2 {
+      font-size: 20px; font-weight: 700; color: #1a1a1a;
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 2px solid #1a1a1a; letter-spacing: -0.3px;
+    }
+    .faq-item {
+      border: 1.5px solid #e8e8e8; border-radius: 12px;
+      padding: 20px; margin-bottom: 10px;
+    }
+    .faq-item h3 { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+    .faq-item p { font-size: 13px; color: #555; line-height: 1.8; font-weight: 400; }
+
+    /* 환불 정책 */
+    .refund-box {
+      background-color: #f8f8f8; border-radius: 12px;
+      padding: 20px 24px; margin-bottom: 48px;
+      font-size: 14px; color: #444; line-height: 1.9;
+      text-align: center; font-weight: 400;
+    }
+    .refund-box strong { color: #1a1a1a; font-weight: 700; }
+
+    /* CTA */
+    .cta-box {
+      background-color: #1a1a1a; border-radius: 16px;
+      padding: 44px; text-align: center;
+    }
+    .cta-box h3 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: -0.4px; }
+    .cta-box p { font-size: 14px; color: #aaa; line-height: 1.9; margin-bottom: 28px; font-weight: 400; }
+    .cta-btn {
+      display: inline-block; padding: 14px 36px;
+      background-color: #FFE3DB; color: #1a1a1a;
+      border-radius: 100px; font-size: 15px; font-weight: 700;
+      text-decoration: none; transition: background-color 0.15s; letter-spacing: -0.2px;
+    }
+    .cta-btn:hover { background-color: #ffd4c8; }
+
+    footer {
+      background-color: #1a1a1a; color: #fff; text-align: center;
+      padding: 36px 24px; font-size: 13px; font-weight: 400; line-height: 1.8;
+    }
+    footer p { margin-bottom: 4px; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 24px; }
+      .header-title { font-size: 15px; }
+      .header-left img { height: 34px; }
+      .header-inner { height: 60px; padding: 0 20px; }
+      .content { padding: 40px 20px; }
+      .cta-box { padding: 32px 20px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "시아쌤음악교육",
+  "description": "유초등·성인·시니어 전문 음악교육. 뮤직어스 어린이 음악신문, 클래식 클라씨 피아노 방문레슨, 음악수업자료 제공.",
+  "url": "https://siasaem.co.kr",
+  "email": "engel0301@naver.com",
+  "founder": "박경민",
+  "serviceType": ["피아노 개인레슨", "어린이 음악신문", "음악수업자료"],
+  "areaServed": "서울 강남·서초·송파·용산"
+}
+</script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-left">
+        <img src="siasaem-logo.png" alt="시아쌤음악교육" onclick="window.scrollTo(0,0)">
+        <span class="header-title">시아쌤 전자책</span>
+      </div>
+      <a href="index.html" class="back-btn">← 시아쌤음악교육</a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>시아쌤 전자책 📖</h1>
+    <p>10년 경험을 담은 피아노 개인레슨 실전 가이드<br>하나부터 열까지 시행착오 없이 시작하세요!</p>
+  </div>
+
+  <div class="content">
+
+    <!-- 상세 이미지 -->
+    <div class="ebook-images">
+      <img src="ebook1.webp" alt="전자책 소개 1">
+      <img src="ebook2.webp" alt="전자책 소개 2">
+      <img src="ebook3.webp" alt="전자책 소개 3">
+      <img src="ebook4.webp" alt="전자책 소개 4">
+      <img src="ebook5.webp" alt="전자책 소개 5">
+      <img src="ebook6.webp" alt="전자책 소개 6">
+      <img src="ebook7.webp" alt="전자책 소개 7">
+    </div>
+
+    <!-- 소개 글 -->
+    <div class="intro-text">
+      <p>안녕하세요. 시아쌤입니다 :)</p>
+      <p>음대 졸업 후 다양한 일에 도전하면서 느끼는 아쉬움 중 하나는 <strong>"멘토가 없다"</strong>인데요.</p>
+      <p>사소한 궁금증이 생겼는데 물어볼 곳이 없을 때,<br>
+      어디서부터 어떻게 시작해야할지 막막해서 시작하기도 어려울 때,<br>
+      인맥없이 모든 것을 혼자 해내며 답답함을 느낄 때 등등...</p>
+      <p>정말 하나부터 열까지 시행착오를 겪으면서 현재까지 오게 되며 다짐한 것이 있어요.</p>
+      <p><strong>내가 경험한 다양한 순간들을 꼭 모두에게 공유해야겠다!</strong></p>
+      <p>위와 같은 다짐 하나로, 처음 시아쌤 유튜브 채널을 시작했고 그 후 인스타그램까지 운영하게 되었어요.</p>
+      <p>음대를 졸업하고 나면 적성에 맞추어 다양한 진로를 설정하게 되는데요. 음악과 관련 없는 새로운 진로를 찾아 시작하기도 하지만 보통 악기 레슨을 하게됩니다.</p>
+      <p>하지만 가르칠 대상이 있어야 시작할 수 있기 때문에 학생을 구하기 위해 많은 노력을 하는데요. 다른 동기나 친구들에게 도움을 청하기에도 어려운 것이 모두 다 같은 상황이기 때문에 큰 도움을 받기에는 한계가 있어요.</p>
+      <p>그때의 힘듦을 누구보다 잘 알고 이해하기에 저의 시행착오를 자세하게 정리했습니다!</p>
+      <p><strong>10년동안 레스너로 활동하면서 상당한 시간을 고심하고 투자해서 만들어낸 저의 경험담을 많은 분들이 보고 도움을 얻으셨으면 좋겠습니다.</strong></p>
+    </div>
+
+    <!-- 목차 -->
+    <div class="toc-section">
+      <h2>📋 목차</h2>
+      <div class="toc-item">
+        <h3>1. 개인레슨의 시작</h3>
+        <ul>
+          <li>개인레슨 어떻게 시작하게 되었을까?</li>
+          <li>전략적인 홍보 시작하기</li>
+          <li>효과적인 홍보 방법찾기</li>
+          <li>가장 예민한 부분, 레슨비 책정하기</li>
+          <li>개인과외 교습자 신고, 필수일까?</li>
+        </ul>
+      </div>
+      <div class="toc-item">
+        <h3>2. 효과적인 상담 스킬</h3>
+        <ul>
+          <li>학부모에게 정확하게 전하는 나의 교육철학 : 1W1W 전략법</li>
+          <li>첫 상담 후 수업 등록을 이끌어내는 상담</li>
+          <li>상황별 학부모 대응 노하우</li>
+        </ul>
+      </div>
+      <div class="toc-item">
+        <h3>3. 교재/수업시간분배/연습지도</h3>
+        <ul>
+          <li>어떻게 가르칠 것인가?</li>
+        </ul>
+      </div>
+      <div class="toc-item">
+        <h3>4. 나만의 수업 방식 만들기</h3>
+        <ul>
+          <li>유초등 대상 첫수업 파헤치기</li>
+          <li>기초 수업 내용 총정리</li>
+          <li>악보 빨리 보게 하는 방법</li>
+          <li>리듬감각 없는 학생 훈련시키기</li>
+          <li>4~5세 한글 모르는 학생 수업방법</li>
+          <li>수업하기 싫고 놀고만 싶은 학생</li>
+          <li>멋대로 연주하고 선생님 지적을 싫어하는 학생</li>
+        </ul>
+      </div>
+      <div class="toc-item">
+        <h3>5. 제자연주회</h3>
+        <ul>
+          <li>매년 제자연주회를 기획하는 이유</li>
+          <li>제자연주회 준비과정</li>
+        </ul>
+      </div>
+      <div class="toc-item">
+        <h3>6. 효율적인 시간표 세팅</h3>
+        <ul>
+          <li>주 30명 수업 스케줄 세팅방법</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2>💬 자주 묻는 질문</h2>
+      <div class="faq-item">
+        <h3>타 전공인데 구매해도 도움이 될까요?</h3>
+        <p>전반적인 내용을 도움 얻으실 수 있지만 피아노 선생님들을 대상으로 책을 기획하여 티칭법이나 구체적인 내용은 피아노 수업 특성에 맞춰 구성되었다는 점 확인해주세요.</p>
+      </div>
+      <div class="faq-item">
+        <h3>전자책 구매해서 읽으면 바로 학생이 늘어날까요?</h3>
+        <p>저의 경험담을 토대로 방향을 제시해드리는 내용입니다. 안내 해드리는대로 천천히 따라와주시면서 선생님만의 체계를 잡으시면 충분히 가능합니다.</p>
+      </div>
+    </div>
+
+    <!-- 환불 정책 -->
+    <div class="refund-box">
+      <strong>* 환불정책 *</strong><br>
+      콘텐츠 특성상 단순 변심으로 인한 환불은 어렵습니다.<br>
+      (파일 오류의 문제 발생시 즉시 재전송 가능)
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h3>전자책 구매하기 📖</h3>
+      <p>10년 경험을 담은 피아노 개인레슨 실전 가이드<br>지금 바로 시작하세요!</p>
+      <a href="https://naver.me/xcndf02D" target="_blank" class="cta-btn">✏️ 전자책 구매하기</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p style="font-weight:700; font-size:15px; margin-bottom:8px;">시아쌤음악교육 · 전자책</p>
+    <p>대표자: 박경민 · 사업자등록번호: 378-15-02910</p>
+    <p>© 2026 시아쌤음악교육 · All rights reserved</p>
+    <p style="margin-top:8px; color:#aaa;">문의: engel0301@naver.com</p>
+  </footer>
+</body>
+</html>

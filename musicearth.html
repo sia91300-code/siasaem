@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="naver-site-verification" content="67d8f16d98c83e744261498eadb8a8b74a8ba49f" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="siasaem-logo.png" type="image/png">
+  <title>뮤직어스 | 어린이 음악신문 음악 특강 자료</title>
+<meta name="description" content="뮤직어스 - 어린이 음악신문 및 음악 특강 자료. 유초등 전문 음악 콘텐츠.">
+<meta name="keywords" content="뮤직어스, 어린이음악신문, 음악특강자료, 유초등음악교육">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 네비게이션 */
+    nav {
+      background-color: #fff;
+      border-bottom: 1.5px solid #2D3A8C;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .nav-logo img { height: 40px; }
+    .nav-logo span {
+      font-size: 17px;
+      font-weight: 700;
+      color: #2D3A8C;
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+    }
+    .nav-menu { display: flex; list-style: none; }
+    .nav-menu > li { position: relative; }
+    .nav-menu > li > a {
+      display: block;
+      padding: 22px 12px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      white-space: nowrap;
+      letter-spacing: -0.2px;
+    }
+    .nav-menu > li > a:hover { color: #2D3A8C; }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      background: #fff;
+      border: 1.5px solid #eee;
+      border-radius: 12px;
+      min-width: 160px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 999;
+      overflow: hidden;
+    }
+    .dropdown a {
+      display: block;
+      padding: 12px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #444;
+    }
+    .dropdown a:hover { background-color: #f0f3ff; color: #2D3A8C; }
+    .nav-menu > li:hover .dropdown { display: block; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background-color: #2D3A8C; border-radius: 2px; }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #fff;
+      border-bottom: 1.5px solid #2D3A8C;
+    }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .mobile-menu a:hover { background-color: #f0f3ff; color: #2D3A8C; }
+    .mobile-menu.open { display: flex; }
+
+    /* 섹션 */
+    section { display: none; padding: 64px 24px; max-width: 960px; margin: 0 auto; }
+    section.active { display: block; }
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2D3A8C;
+      margin-bottom: 32px;
+      text-align: center;
+      letter-spacing: -0.5px;
+    }
+
+    /* 랜딩 */
+    #landing { display: block; padding: 0; max-width: 100%; }
+    .hero-image {
+      max-width: 640px;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    /* 히어로 버튼 */
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 28px 24px;
+      background-color: #f0f3ff;
+    }
+    .btn-trial {
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      background-color: #2D3A8C;
+      color: white;
+      letter-spacing: -0.2px;
+      transition: background-color 0.15s;
+    }
+    .btn-trial:hover { background-color: #1e2a6e; }
+    .btn-kakao {
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      background-color: #FEE500;
+      color: #3C1E1E;
+      letter-spacing: -0.2px;
+      transition: background-color 0.15s;
+    }
+    .btn-kakao:hover { background-color: #f0d800; }
+
+    /* 언론 & 펀딩 */
+    .press-section {
+      padding: 64px 24px;
+      background-color: #fff;
+      text-align: center;
+    }
+    .press-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2D3A8C;
+      margin-bottom: 36px;
+      letter-spacing: -0.3px;
+    }
+    .press-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .press-card {
+      width: 100%;
+      background-color: #f8f9ff;
+      border: 1.5px solid #2D3A8C;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    .press-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #2D3A8C;
+      margin-bottom: 16px;
+      letter-spacing: -0.2px;
+    }
+    .press-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .press-card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .press-btn {
+      display: inline-block;
+      padding: 10px 24px;
+      background-color: #2D3A8C;
+      color: white;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.15s;
+    }
+    .press-btn:hover { background-color: #1e2a6e; }
+
+    /* 패키지 */
+    .pricing-section {
+      padding: 64px 24px;
+      text-align: center;
+      background-color: #f0f3ff;
+    }
+    .pricing-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2D3A8C;
+      margin-bottom: 32px;
+      letter-spacing: -0.3px;
+    }
+    .package-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .package-card {
+      border: 1.5px solid #2D3A8C;
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 300px;
+      text-align: left;
+      background-color: #fff;
+    }
+    .package-card img { width: 100%; border-radius: 10px; margin-bottom: 14px; }
+    .package-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #2D3A8C;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+    .package-card p {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 14px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+    .price-row { display: flex; justify-content: space-between; margin-top: 10px; }
+    .price-item { text-align: center; }
+    .price-item .label { font-size: 12px; color: #999; font-weight: 400; }
+    .price-item .amount { font-size: 19px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.5px; }
+    .price-item .original { font-size: 11px; color: #bbb; text-decoration: line-through; font-weight: 400; }
+    .card-btn {
+      display: block;
+      margin-top: 18px;
+      padding: 12px;
+      background-color: #2D3A8C;
+      color: white;
+      border-radius: 100px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.15s;
+    }
+    .card-btn:hover { background-color: #1e2a6e; }
+
+    /* 갤러리 */
+    .gallery { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .gallery img { width: 100%; max-width: 720px; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+
+    .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+    .btn-primary {
+      display: inline-block; padding: 14px 32px;
+      background-color: #2D3A8C; color: white;
+      border-radius: 100px; font-size: 15px; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background-color 0.15s; letter-spacing: -0.2px;
+    }
+    .btn-primary:hover { background-color: #1e2a6e; }
+    .btn-outline {
+      display: inline-block; padding: 14px 32px;
+      background-color: #fff; color: #2D3A8C;
+      border: 1.5px solid #2D3A8C; border-radius: 100px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; cursor: pointer;
+      transition: background-color 0.15s; letter-spacing: -0.2px;
+    }
+    .btn-outline:hover { background-color: #f0f3ff; }
+
+    /* 후기 */
+    .review-list { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .review-list img { width: 100%; max-width: 600px; border-radius: 14px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+
+    /* 체험본 */
+    .trial-box { text-align: center; padding: 40px 24px; }
+    .trial-box p { font-size: 16px; color: #555; line-height: 1.9; margin-bottom: 28px; font-weight: 400; }
+
+    /* 유의사항 */
+    .notice-box {
+      background: #f0f3ff; border-radius: 16px;
+      padding: 28px; max-width: 640px;
+      margin: 0 auto; line-height: 2;
+      font-size: 14px; color: #444; font-weight: 400;
+    }
+    .notice-box h4 {
+      font-size: 15px; font-weight: 700; color: #2D3A8C;
+      margin-bottom: 8px; margin-top: 20px; letter-spacing: -0.2px;
+    }
+    .notice-box h4:first-child { margin-top: 0; }
+
+    /* 개별 파일 구매 */
+    .year-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: #2D3A8C;
+      margin: 32px 0 14px 0;
+      padding-left: 14px;
+      border-left: 3px solid #2D3A8C;
+      letter-spacing: -0.2px;
+    }
+    .individual-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 760px;
+      margin: 0 auto 32px auto;
+    }
+    .individual-item {
+      border: 1.5px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      background-color: #fff;
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+    .individual-item:hover { border-color: #2D3A8C; background-color: #f8f9ff; }
+    .individual-item .issue-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+    .issue-badge {
+      background-color: #2D3A8C;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      letter-spacing: 0.2px;
+    }
+    .issue-title {
+      font-size: 13px;
+      color: #333;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .issue-buttons { display: flex; gap: 8px; flex-shrink: 0; }
+    .preview-btn {
+      padding: 7px 14px;
+      background-color: #fff;
+      color: #2D3A8C;
+      border: 1.5px solid #2D3A8C;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.15s;
+    }
+    .preview-btn:hover { background-color: #f0f3ff; }
+    .buy-btn {
+      padding: 7px 14px;
+      background-color: #2D3A8C;
+      color: white;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.15s;
+    }
+    .buy-btn:hover { background-color: #1e2a6e; }
+
+    /* CONTACT */
+    .contact-box {
+      max-width: 540px; margin: 0 auto;
+      background: #f0f3ff; border-radius: 16px;
+      padding: 32px; text-align: center;
+    }
+    .contact-box p { font-size: 15px; color: #444; line-height: 2.4; font-weight: 400; }
+    .contact-box a { color: #2D3A8C; font-weight: 700; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* 푸터 */
+    footer {
+      background-color: #2D3A8C; color: #fff;
+      text-align: center; padding: 36px 24px;
+      font-size: 13px; margin-top: 80px;
+      font-weight: 400; line-height: 1.8;
+    }
+    footer p { margin-bottom: 4px; }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .hamburger { display: flex; }
+      .nav-inner { height: 60px; }
+      .nav-logo img { height: 34px; }
+      .nav-logo span { font-size: 15px; }
+      .btn-trial, .btn-kakao { width: 100%; text-align: center; padding: 14px 20px; }
+      .hero-buttons { flex-direction: column; align-items: center; padding: 24px 20px; }
+      section { padding: 48px 20px; }
+      .section-title { font-size: 20px; }
+      .individual-item { flex-direction: column; align-items: flex-start; }
+      .issue-buttons { width: 100%; justify-content: flex-end; }
+    }
+    @media (max-width: 480px) {
+      .package-grid { flex-direction: column; align-items: center; }
+      .package-card { max-width: 100%; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "시아쌤음악교육",
+  "description": "유초등·성인·시니어 전문 음악교육. 뮤직어스 어린이 음악신문, 클래식 클라씨 피아노 방문레슨, 음악수업자료 제공.",
+  "url": "https://siasaem.co.kr",
+  "email": "engel0301@naver.com",
+  "founder": "박경민",
+  "serviceType": ["피아노 개인레슨", "어린이 음악신문", "음악수업자료"],
+  "areaServed": "서울 강남·서초·송파·용산"
+}
+</script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="goHome()">
+        <img src="logo.jpg" alt="뮤직어스 로고">
+        <span>뮤직어스</span>
+      </div>
+      <ul class="nav-menu">
+        <li>
+          <a href="#">뮤직어스란?</a>
+          <div class="dropdown">
+            <a href="#" onclick="showSection('musicearth')">상세소개</a>
+            <a href="#" onclick="showSection('reviews')">후기모음</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">구독 신청</a>
+          <div class="dropdown">
+            <a href="https://naver.me/Ix0c6YVh" target="_blank">신청 바로하기</a>
+            <a href="#" onclick="showSection('trial')">체험본 받아보기</a>
+            <a href="#" onclick="showSection('pricing')">구독 가격안내</a>
+            <a href="#" onclick="showSection('notice')">신청 유의사항</a>
+          </div>
+        </li>
+        <li>
+          <a href="#" onclick="showSection('individual')">개별 파일 구매</a>
+        </li>
+        <li>
+          <a href="#" onclick="showSection('contact')">CONTACT</a>
+        </li>
+      </ul>
+      <a href="index.html" style="font-size:13px; color:#2D3A8C; text-decoration:none; font-weight:bold; border:2px solid #2D3A8C; padding:6px 14px; border-radius:20px; white-space:nowrap;">← 시아쌤음악교육</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" onclick="showSection('musicearth')">상세소개</a>
+      <a href="#" onclick="showSection('reviews')">후기모음</a>
+      <a href="https://naver.me/Ix0c6YVh" target="_blank">신청 바로하기</a>
+      <a href="#" onclick="showSection('trial')">체험본 받아보기</a>
+      <a href="#" onclick="showSection('pricing')">구독 가격안내</a>
+      <a href="#" onclick="showSection('notice')">신청 유의사항</a>
+      <a href="#" onclick="showSection('individual')">개별 파일 구매</a>
+      <a href="#" onclick="showSection('contact')">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- 랜딩 첫 화면 -->
+  <div id="landing">
+    <img src="image13.png" alt="뮤직어스 메인 이미지" class="hero-image">
+    <div class="hero-buttons">
+      <a href="trial.pdf" download class="btn-trial">📄 체험본 다운로드</a>
+      <a href="https://open.kakao.com/o/sJUJIgMh" target="_blank" class="btn-kakao">💬 구독 문의하기</a>
+    </div>
+
+    <!-- 언론 & 펀딩 -->
+    <div class="press-section">
+      <h2>🏆 뮤직어스가 인정받았어요!</h2>
+      <div class="press-grid">
+        <div class="press-card">
+          <h3>🎯 와디즈 펀딩 성공</h3>
+          <img src="wadiz.png" alt="와디즈 펀딩 성공">
+          <p>뮤직어스가 와디즈 크라우드펀딩에서<br>많은 분들의 응원으로 성공했어요!</p>
+        </div>
+        <div class="press-card">
+          <h3>📰 음악신문 소개</h3>
+          <img src="interview1.jpg" alt="음악신문 인터뷰">
+          <p>뮤직어스가 음악신문에 소개되었어요!<br>어린이 음악교육의 새로운 시도로 주목받았습니다.</p>
+          <a href="https://musiced.co.kr:6306/bbs/board.php?tbl=cover_story&mode=VIEW&num=336" target="_blank" class="press-btn">기사 보러가기 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 구독 패키지 -->
+    <div class="pricing-section">
+      <h2>📦 구독 패키지 안내</h2>
+      <div class="package-grid">
+        <div class="package-card">
+          <img src="image14.png" alt="스타트 패키지">
+          <h3>🟡 스타트 패키지</h3>
+          <p>뮤직어스 기사 2page 제공<br>음악 이야기를 읽기 쉽게!</p>
+          <div class="price-row">
+            <div class="price-item">
+              <div class="label">6개월</div>
+              <div class="original">정가 30,000원</div>
+              <div class="amount">18,000원</div>
+            </div>
+            <div class="price-item">
+              <div class="label">12개월</div>
+              <div class="original">정가 60,000원</div>
+              <div class="amount">36,000원</div>
+            </div>
+          </div>
+          <a href="https://naver.me/Ix0c6YVh" target="_blank" class="card-btn">신청하기</a>
+        </div>
+        <div class="package-card">
+          <img src="image15.png" alt="앙상블 패키지">
+          <h3>🎼 앙상블 패키지</h3>
+          <p>기사 + 활동지 총 8-10page 제공<br>읽고 쓰고 배우는 음악 경험!</p>
+          <div class="price-row">
+            <div class="price-item">
+              <div class="label">6개월</div>
+              <div class="original">정가 42,000원</div>
+              <div class="amount">35,000원</div>
+            </div>
+            <div class="price-item">
+              <div class="label">12개월</div>
+              <div class="original">정가 84,000원</div>
+              <div class="amount">60,000원</div>
+            </div>
+          </div>
+          <a href="https://naver.me/Ix0c6YVh" target="_blank" class="card-btn">신청하기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 뮤직어스란? 상세소개 -->
+  <section id="musicearth">
+    <h2 class="section-title">뮤직어스란?</h2>
+    <div class="gallery">
+      <img src="image1.jpeg" alt="뮤직어스 소개 1">
+      <img src="image2.gif" alt="뮤직어스 소개 2">
+      <img src="image3.gif" alt="뮤직어스 소개 3">
+      <img src="image4.jpeg" alt="뮤직어스 소개 4">
+      <img src="image5.gif" alt="뮤직어스 소개 5">
+      <img src="image6.jpeg" alt="뮤직어스 소개 6">
+      <img src="image7.gif" alt="뮤직어스 소개 7">
+      <img src="image8.jpeg" alt="뮤직어스 소개 8">
+      <img src="image9.jpeg" alt="뮤직어스 소개 9">
+      <img src="image10.jpeg" alt="뮤직어스 소개 10">
+      <img src="image11.gif" alt="뮤직어스 소개 11">
+      <img src="image12.gif" alt="뮤직어스 소개 12">
+    </div>
+    <div class="btn-group">
+      <a href="trial.pdf" download class="btn-primary">📄 체험본 다운로드</a>
+      <a href="https://naver.me/Ix0c6YVh" target="_blank" class="btn-outline">✏️ 구독 신청하기</a>
+    </div>
+  </section>
+
+  <!-- 후기모음 -->
+  <section id="reviews">
+    <h2 class="section-title">후기모음</h2>
+    <div class="review-list">
+      <img src="review1.jpg" alt="후기 1">
+      <img src="review2.jpg" alt="후기 2">
+      <img src="review3.jpg" alt="후기 3">
+      <img src="review4.jpg" alt="후기 4">
+      <img src="review5.jpg" alt="후기 5">
+      <img src="review6.jpg" alt="후기 6">
+      <img src="review7.jpg" alt="후기 7">
+      <img src="review8.jpg" alt="후기 8">
+      <img src="review9.jpg" alt="후기 9">
+    </div>
+  </section>
+
+  <!-- 체험본 받아보기 -->
+  <section id="trial">
+    <h2 class="section-title">체험본 받아보기</h2>
+    <div class="trial-box">
+      <p>뮤직어스가 궁금하신가요? 🎵<br>아래 버튼을 눌러 체험본을 바로 다운로드 받아보세요!</p>
+      <a href="trial.pdf" download class="btn-primary">📄 체험본 다운로드</a>
+    </div>
+  </section>
+
+  <!-- 구독 가격안내 -->
+  <section id="pricing">
+    <h2 class="section-title">구독 가격안내</h2>
+    <div class="package-grid">
+      <div class="package-card">
+        <img src="image14.png" alt="스타트 패키지">
+        <h3>🟡 스타트 패키지</h3>
+        <p>뮤직어스 기사 2page 제공<br>음악 이야기를 읽기 쉽게!</p>
+        <div class="price-row">
+          <div class="price-item">
+            <div class="label">6개월</div>
+            <div class="original">정가 30,000원</div>
+            <div class="amount">18,000원</div>
+          </div>
+          <div class="price-item">
+            <div class="label">12개월</div>
+            <div class="original">정가 60,000원</div>
+            <div class="amount">36,000원</div>
+          </div>
+        </div>
+        <a href="https://naver.me/Ix0c6YVh" target="_blank" class="card-btn">신청하기</a>
+      </div>
+      <div class="package-card">
+        <img src="image15.png" alt="앙상블 패키지">
+        <h3>🎼 앙상블 패키지</h3>
+        <p>기사 + 활동지 총 8-10page 제공<br>읽고 쓰고 배우는 음악 경험!</p>
+        <div class="price-row">
+          <div class="price-item">
+            <div class="label">6개월</div>
+            <div class="original">정가 42,000원</div>
+            <div class="amount">35,000원</div>
+          </div>
+          <div class="price-item">
+            <div class="label">12개월</div>
+            <div class="original">정가 84,000원</div>
+            <div class="amount">60,000원</div>
+          </div>
+        </div>
+        <a href="https://naver.me/Ix0c6YVh" target="_blank" class="card-btn">신청하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 신청 유의사항 -->
+  <section id="notice">
+    <h2 class="section-title">신청 유의사항</h2>
+    <div class="notice-box">
+      <h4>📌 환불 규정</h4>
+      <p>· 자료 특성상 파일 전송 후 환불 불가능합니다.<br>
+      · 구독 정지를 원할 경우, 전월 28일까지 해지 신청 시 구독 취소 가능합니다.<br>
+      · 구독 해지의 경우 수령한 개월 수만큼 정가 차감 후 환불 받으실 수 있습니다.</p>
+      <h4>📌 카카오톡 파일 전송 안내</h4>
+      <p>· 카카오톡으로도 파일 수령을 원하시는 경우 아래 링크로 메시지 남겨주세요.</p>
+      <p style="margin-top:10px;">
+        <a href="https://open.kakao.com/o/sJUJIgMh" target="_blank" style="color:#2D3A8C; font-weight:700;">
+          👉 카카오톡 오픈채팅 바로가기
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- 개별 파일 구매 -->
+  <section id="individual">
+    <h2 class="section-title">개별 파일 구매</h2>
+    <p style="text-align:center; color:#666; margin-bottom:8px; font-size:14px; line-height:1.8; font-weight:400;">
+      구독 없이 원하는 호수만 개별 구매하실 수 있어요! 🎵
+    </p>
+    <p style="text-align:center; color:#999; margin-bottom:32px; font-size:13px; font-weight:400;">
+      👁 미리보기로 내용을 확인하고 구매하세요!
+    </p>
+    <div class="individual-list">
+      <div class="year-label">📅 2025년</div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">1호</span><span class="issue-title">2025-1월 - 리스트/베토벤/오선악보이론</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/223828304999" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">2호</span><span class="issue-title">2025-2월 - 쇼팽/현악기개념/빠르기말</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/223828314612" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">3호</span><span class="issue-title">2025-3월 - 하이든/고전시대/봄 주제 곡 감상/셈여림기호</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/223828333517" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">4호</span><span class="issue-title">2025-4월 - 슈베르트 미완성 교향곡/클래식 공연장매너/스타카토 종류</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/223841340786" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">5호</span><span class="issue-title">2025-5월 - 모차르트 오페라 마술피리/음악의 3요소/임시표 기호</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/223873996022" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">6호</span><span class="issue-title">2025-6월 - 영화 음악의 발전/작곡가 헤어스타일/빠르기 변화 기호</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/223918948218" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">7호</span><span class="issue-title">2025-7월 - 케이팝 데몬 헌터스/민요는 누가 만들었을까?</span></div>
+        <div class="issue-buttons"><a href="https://naver.me/5N14Z64o" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">8호 특별호</span><span class="issue-title">2025 특별호 - 음악으로 만나는 평화 (존레논, 베토벤)</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/223958781643" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">9호</span><span class="issue-title">2025-8월 - 체르니와 하농 이야기/애국가에 대해 자세히 알아보자</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224002452769" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">10호</span><span class="issue-title">2025-9월 - 쇼팽의 작곡에 영감을 준 고양이와 강아지/쇼팽 콩쿠르/피아니스트 조성진</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224062676285" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">11호</span><span class="issue-title">2025-10월 - 도레미파솔라시도 이름은 누가 만들었을까?/교향곡 관련 미스터리</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224100548396" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">12호</span><span class="issue-title">2025-11월 - 무대 위의 모든것이 노래로 진행되는 뮤지컬!</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224102890547" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">13호</span><span class="issue-title">2025-12월 - 언제부터 캐롤을 들었을까?/차이콥스키 발레음악/클래식과 재즈</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224123527822" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="year-label">📅 2026년</div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">14호</span><span class="issue-title">2026-1월 - K-POP 속에 숨어있는 클래식/빈 필하모닉/모차르트 작은별 변주곡</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224179929398" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">15호</span><span class="issue-title">2026-2월 - 소나티네와 소나타의 차이/클래식 곡명에 숨은 비밀/지구 반대편 악기</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224218022699" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">16호</span><span class="issue-title">2026-3월 - 작곡가들의 봄 표현/방탄소년단 노래 속 국악/애국가 악보</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224262495038" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">17호</span><span class="issue-title">2026-4월 - 한 손으로 치는 피아노/세상에서 가장 긴 곡/인상주의 음악</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224299355402" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">18호</span><span class="issue-title">2026-5월 - 클래식 음악이란?/리코더의 역사/히사이시조 영화음악</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224339314313" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">19호 특별호</span><span class="issue-title">2026-5월 특별호 - 프로코피예프 피터와 늑대/클래식 작곡가들은 서로 친할까?</span></div>
+        <div class="issue-buttons"><a href="https://m.blog.naver.com/engel0301/224340290973" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">20호</span><span class="issue-title">2026-6월 - 피아노 건반은 왜 검은색과 흰색일까?/잠잘 때 음악을 들으면 어떤 일이 생길까?/소나티나와 소나티네 무엇이 다를까?/우리나라 대표 음악 아리랑/생상스 동물의 사육제</span></div>
+        <div class="issue-buttons"><a href="https://blog.naver.com/engel0301/224342422238" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://form.naver.com/response/p5ZbQo0KQl4A3Nv0HyqftA" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+      <div class="individual-item">
+        <div class="issue-info"><span class="issue-badge">21호</span><span class="issue-title">2026-7월 - 세계에서 가장 유명한 음악가 가족/우주에도 음악이 있을까요?/우주를 주제로 한 영화음악/우주로 떠난 지구의 음악/바흐가족 탐정노트/오푸스 클래식 수상 소식(임윤찬)/월드컵 개막공연 소식</span></div>
+        <div class="issue-buttons"><a href="https://blog.naver.com/engel0301/224367183223" target="_blank" class="preview-btn">👁 미리보기</a><a href="https://naver.me/5N14Z64o" target="_blank" class="buy-btn">구매하기</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-title">CONTACT</h2>
+    <div class="contact-box">
+      <p>
+        📧 이메일<br>
+        <a href="mailto:engel0301@naver.com">engel0301@naver.com</a><br><br>
+        💬 카카오톡 채널<br>
+        <a href="https://open.kakao.com/o/sJUJIgMh" target="_blank">뮤직어스 오픈채팅 바로가기</a><br><br>
+        📺 유튜브<br>
+        <a href="https://www.youtube.com/@m_mini913" target="_blank">시아쌤 채널 바로가기</a><br><br>
+        📝 블로그<br>
+        <a href="https://blog.naver.com/engel0301" target="_blank">네이버 블로그 바로가기</a><br><br>
+        문의 주시면 빠르게 답변드리겠습니다 🎵
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p style="font-weight:700; font-size:15px; margin-bottom:8px;">뮤직어스 · 유초등 전문 음악신문</p>
+    <p>대표자: 박경민 · 사업자등록번호: 378-15-02910
+© 2026 시아쌤음악교육 · All rights reserved</p>
+    <p style="margin-top:8px; color:#aac4ff;">문의: engel0301@naver.com</p>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.getElementById('landing').style.display = 'none';
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      const target = document.getElementById(id);
+      if (target) target.classList.add('active');
+      window.scrollTo(0, 0);
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+    function goHome() {
+      document.getElementById('landing').style.display = 'block';
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      window.scrollTo(0, 0);
+    }
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
