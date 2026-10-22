@@ -298,6 +298,177 @@
       .contact-grid { grid-template-columns: 1fr; }
       .hero-banner h1 { font-size: 22px; }
     }
+
+    /* ===== 살론느 배너 ===== */
+    .salonne-banner {
+      background: #1A1A1A; padding: 36px 24px; text-align: center;
+    }
+    .salonne-banner-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .salonne-banner-left { text-align: left; }
+    .salonne-banner-sub { font-size: 11px; letter-spacing: 0.3em; color: #E2553A; font-weight: 600; margin-bottom: 6px; }
+    .salonne-banner-title { font-size: 20px; font-weight: 900; color: #fff; margin-bottom: 4px; letter-spacing: -0.3px; }
+    .salonne-banner-date { font-size: 13px; color: #aaa; font-weight: 300; }
+    .salonne-banner-btn {
+      display: inline-block; padding: 12px 28px; background: #E2553A;
+      color: #fff; border-radius: 100px; font-size: 14px; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.15s; white-space: nowrap; flex-shrink: 0;
+    }
+    .salonne-banner-btn:hover { background: #c43d24; }
+    @media (max-width: 600px) {
+      .salonne-banner-inner { flex-direction: column; align-items: flex-start; }
+      .salonne-banner-btn { align-self: stretch; text-align: center; }
+    }
+
+    /* ===== 살론느 팝업 (커버 → 신청하기) ===== */
+    .salonne-cover-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7); z-index: 9998;
+      align-items: center; justify-content: center; padding: 16px;
+    }
+    .salonne-cover-overlay.active { display: flex; }
+    .salonne-cover-box {
+      background: #fff; border-radius: 20px; width: 100%; max-width: 380px;
+      overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+      animation: popupIn 0.3s ease;
+    }
+    @keyframes popupIn {
+      from { transform: scale(0.93); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    /* 커버 카드 */
+    .salonne-cover-card {
+      background: #1A1A1A; padding: 52px 32px 40px; text-align: center;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .salonne-cover-card .gathering { font-size: 11px; letter-spacing: 0.35em; color: #E2553A; font-weight: 600; margin-bottom: 20px; }
+    .salonne-cover-card .logo { font-size: 52px; font-weight: 900; color: #fff; letter-spacing: 0.12em; margin-bottom: 14px; font-family: Georgia, serif; }
+    .salonne-cover-card .divider-line { width: 36px; height: 2px; background: #E2553A; margin: 0 auto 16px; }
+    .salonne-cover-card .slogan { font-size: 16px; color: #ccc; font-weight: 300; line-height: 1.7; margin-bottom: 28px; }
+    .salonne-cover-card .datetime { font-size: 18px; color: #fff; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.04em; }
+    .salonne-cover-card .location { font-size: 14px; color: #999; font-weight: 300; }
+    /* 가격 + 버튼 영역 */
+    .salonne-cover-footer { padding: 24px 28px 28px; background: #fff; }
+    .salonne-price-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .salonne-price-chip { padding: 6px 14px; border-radius: 100px; font-size: 12px; font-weight: 700; border: 1.5px solid #e0e0e0; color: #555; white-space: nowrap; }
+    .salonne-price-chip.hot { background: #E2553A; color: #fff; border-color: #E2553A; }
+    .salonne-cover-apply {
+      display: block; width: 100%; padding: 15px; background: #E2553A;
+      color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700;
+      text-decoration: none; text-align: center; transition: background 0.15s; margin-bottom: 10px;
+    }
+    .salonne-cover-apply:hover { background: #c43d24; }
+    .salonne-cover-detail {
+      display: block; width: 100%; padding: 12px; background: #f5f5f5;
+      color: #333; border-radius: 12px; font-size: 14px; font-weight: 600;
+      text-align: center; border: none; cursor: pointer; transition: background 0.15s;
+    }
+    .salonne-cover-detail:hover { background: #ebebeb; }
+    .salonne-cover-close-row { text-align: center; padding: 12px 0 4px; }
+    .salonne-cover-close-row button {
+      background: none; border: none; font-size: 13px; color: #aaa; cursor: pointer; font-weight: 500;
+    }
+    .salonne-cover-close-row button:hover { color: #333; }
+
+    /* ===== 살론느 상세 모달 (슬라이드) ===== */
+    .salonne-detail-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85); z-index: 9999;
+      align-items: center; justify-content: center; padding: 0;
+    }
+    .salonne-detail-overlay.active { display: flex; }
+    .salonne-detail-box {
+      width: 100%; height: 100%; max-width: 520px; max-height: 100vh;
+      background: #fff; display: flex; flex-direction: column; position: relative;
+      animation: popupIn 0.3s ease;
+    }
+    @media (min-width: 600px) {
+      .salonne-detail-box { max-height: 90vh; border-radius: 20px; height: auto; }
+    }
+    .salonne-detail-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; background: #1A1A1A; flex-shrink: 0;
+    }
+    .salonne-detail-topbar .d-title { color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; }
+    .salonne-detail-topbar .d-counter { color: #888; font-size: 12px; font-weight: 400; }
+    .salonne-detail-topbar button {
+      background: none; border: none; color: #aaa; font-size: 22px; cursor: pointer; line-height: 1; padding: 0 4px;
+    }
+    .salonne-detail-topbar button:hover { color: #fff; }
+    /* Progress bar */
+    .salonne-progress-bar { height: 3px; background: #333; flex-shrink: 0; }
+    .salonne-progress-fill { height: 100%; background: #E2553A; transition: width 0.25s; }
+    /* Slides */
+    .salonne-slides { flex: 1; overflow: hidden; position: relative; }
+    .salonne-slide { display: none; height: 100%; overflow-y: auto; }
+    .salonne-slide.active { display: block; }
+    /* 슬라이드 내 콘텐츠 공통 스타일 */
+    .slide-page {
+      padding: 36px 28px; font-family: 'Noto Sans KR', sans-serif; min-height: 100%;
+      color: #1A1A1A;
+    }
+    .slide-eyebrow { font-size: 11px; letter-spacing: 0.25em; color: #E2553A; font-weight: 600; margin-bottom: 12px; font-style: italic; }
+    .slide-h { font-size: 22px; font-weight: 700; line-height: 1.5; margin-bottom: 24px; letter-spacing: -0.3px; }
+    .slide-body { font-size: 14px; line-height: 1.9; color: #3A3A3A; font-weight: 300; }
+    .slide-body + .slide-body { margin-top: 16px; }
+    .slide-body b { font-weight: 600; color: #1A1A1A; }
+    .slide-list { list-style: none; padding: 0; margin: 0; }
+    .slide-list li { padding: 14px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; font-weight: 400; }
+    .slide-list li:last-child { border-bottom: none; }
+    .slide-num { display: flex; gap: 20px; align-items: baseline; margin-bottom: 28px; }
+    .slide-num .n { font-size: 40px; color: #ddd; font-weight: 900; font-family: Georgia, serif; width: 36px; flex-shrink: 0; }
+    .slide-num .text { font-size: 16px; font-weight: 600; }
+    .slide-qa { margin-bottom: 20px; }
+    .slide-qa .q { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .slide-qa .q span { color: #E2553A; margin-right: 8px; font-family: Georgia, serif; }
+    .slide-qa .a { font-size: 13px; font-weight: 300; line-height: 1.8; color: #4A4A4A; padding-left: 22px; }
+    .slide-timetable { }
+    .slide-time-row { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+    .slide-time-row:last-child { border-bottom: none; }
+    .slide-time-row .time { font-size: 12px; color: #888; min-width: 90px; flex-shrink: 0; padding-top: 2px; font-family: Georgia, serif; }
+    .slide-time-row .prog { }
+    .slide-time-row .prog-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .slide-time-row .prog-desc { font-size: 12px; color: #666; font-weight: 300; line-height: 1.7; }
+    .slide-price-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
+    .slide-price-row:last-of-type { border-bottom: none; }
+    .slide-price-label { font-size: 14px; font-weight: 500; }
+    .slide-price-sub { font-size: 11px; color: #999; margin-top: 2px; }
+    .slide-price-amount { font-size: 22px; font-weight: 700; font-family: Georgia, serif; }
+    .slide-price-amount.early { color: #E2553A; }
+    /* info boxes */
+    .slide-info-box { background: #f8f8f8; border-radius: 10px; padding: 16px; margin-top: 16px; font-size: 13px; color: #666; line-height: 1.8; }
+    .slide-step-row { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+    .slide-step-num { background: #E2553A; color: #fff; border-radius: 6px; padding: 4px 10px; font-size: 13px; font-weight: 700; flex-shrink: 0; font-family: Georgia, serif; }
+    .slide-step-text { font-size: 14px; font-weight: 500; padding-top: 4px; }
+    .slide-step-sub { font-size: 12px; color: #888; margin-top: 2px; font-weight: 300; }
+    /* 커버 슬라이드 */
+    .slide-cover {
+      background: #1A1A1A; min-height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 60px 32px;
+    }
+    .slide-cover .c-sub { font-size: 11px; letter-spacing: 0.35em; color: #E2553A; font-weight: 600; margin-bottom: 16px; }
+    .slide-cover .c-logo { font-size: 56px; font-weight: 900; color: #fff; letter-spacing: 0.12em; font-family: Georgia, serif; margin-bottom: 14px; }
+    .slide-cover .c-line { width: 32px; height: 2px; background: #E2553A; margin: 0 auto 16px; }
+    .slide-cover .c-slogan { font-size: 15px; color: #bbb; font-weight: 300; line-height: 1.8; margin-bottom: 32px; }
+    .slide-cover .c-date { font-size: 20px; color: #fff; font-weight: 700; margin-bottom: 6px; letter-spacing: 0.03em; }
+    .slide-cover .c-loc { font-size: 13px; color: #888; font-weight: 300; }
+    /* Bottom nav */
+    .salonne-detail-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; background: #fff; border-top: 1px solid #eee; flex-shrink: 0;
+    }
+    .salonne-detail-nav button {
+      padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      border: 1.5px solid #e0e0e0; background: #fff; color: #1a1a1a; cursor: pointer;
+      transition: all 0.15s;
+    }
+    .salonne-detail-nav button:hover:not(:disabled) { border-color: #1a1a1a; }
+    .salonne-detail-nav button:disabled { opacity: 0.3; cursor: not-allowed; }
+    .salonne-detail-nav .apply-nav {
+      background: #E2553A; color: #fff; border-color: #E2553A;
+    }
+    .salonne-detail-nav .apply-nav:hover { background: #c43d24; border-color: #c43d24; }
+
   </style>
 <script type="application/ld+json">
 {
@@ -324,6 +495,18 @@
       <span class="header-title" onclick="window.scrollTo(0,0)">시아쌤 음악교육</span>
     </div>
   </header>
+
+  <!-- 살론느 배너 -->
+  <div class="salonne-banner">
+    <div class="salonne-banner-inner">
+      <div class="salonne-banner-left">
+        <div class="salonne-banner-sub">SALONNE · 오프라인 모임</div>
+        <div class="salonne-banner-title">제 3회 시아쌤 네트워킹 모임 (12.5)</div>
+        <div class="salonne-banner-date">2026년 12월 5일 토요일 오후 6시 · 강남·신논현</div>
+      </div>
+      <button class="salonne-banner-btn" onclick="openSalonneDetail()">참여하기 →</button>
+    </div>
+  </div>
 
   <!-- 히어로 배너 -->
   <div class="hero-banner">
@@ -477,6 +660,267 @@
     <p style="margin-top:8px; color:#aaa;">대표자: 박경민 · 사업자등록번호: 378-15-02910
 © 2026 시아쌤음악교육 · All rights reserved</p>
   </footer>
+
+  <!-- 살론느 커버 팝업 (자동 노출) -->
+  <div class="salonne-cover-overlay" id="salonneCoverPopup">
+    <div class="salonne-cover-box">
+      <!-- 커버 카드 -->
+      <div class="salonne-cover-card">
+        <div class="gathering">THE 3RD GATHERING</div>
+        <div class="logo">SALONNE</div>
+        <div class="divider-line"></div>
+        <div class="slogan">예술을 업으로,<br>성장을 일상으로</div>
+        <div class="datetime">2026. 12. 5  SAT  6PM</div>
+        <div class="location">강남 · 신논현</div>
+      </div>
+      <!-- 가격 + 버튼 -->
+      <div class="salonne-cover-footer">
+        <div class="salonne-price-chips">
+          <span class="salonne-price-chip hot">얼리버드 30,000원 (~10/31)</span>
+          <span class="salonne-price-chip">대학생 20,000원</span>
+          <span class="salonne-price-chip">정가 35,000원</span>
+        </div>
+        <a href="https://naver.me/xUZ9ZoIC" target="_blank" class="salonne-cover-apply">신청하기 →</a>
+        <button class="salonne-cover-detail" onclick="closeCoverOpenDetail()">상세 내용 보기</button>
+        <div class="salonne-cover-close-row">
+          <button onclick="closeSalonneCover()">오늘 하루 보지 않기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 살론느 상세 슬라이드 모달 -->
+  <div class="salonne-detail-overlay" id="salonneDetailModal">
+    <div class="salonne-detail-box">
+      <!-- 상단 바 -->
+      <div class="salonne-detail-topbar">
+        <div class="d-title">SALONNE · 제 3회 모임</div>
+        <div class="d-counter" id="slideCounter">1 / 8</div>
+        <button onclick="closeSalonneDetail()" aria-label="닫기">×</button>
+      </div>
+      <!-- 프로그레스 바 -->
+      <div class="salonne-progress-bar">
+        <div class="salonne-progress-fill" id="progressFill" style="width:12.5%"></div>
+      </div>
+      <!-- 슬라이드 영역 -->
+      <div class="salonne-slides">
+
+        <!-- 슬라이드 1: 커버 -->
+        <div class="salonne-slide active" id="slide-1">
+          <div class="slide-cover">
+            <div class="c-sub">THE 3RD GATHERING</div>
+            <div class="c-logo">SALONNE</div>
+            <div class="c-line"></div>
+            <div class="c-slogan">예술을 업으로,<br>성장을 일상으로</div>
+            <div class="c-date">2026. 12. 5  SAT  6PM</div>
+            <div class="c-loc">강남 · 신논현</div>
+          </div>
+        </div>
+
+        <!-- 슬라이드 2: Why SALONNE -->
+        <div class="salonne-slide" id="slide-2">
+          <div class="slide-page">
+            <div class="slide-eyebrow">Why SALONNE</div>
+            <div class="slide-h">혼자 고민할 때는<br>보이지 않던 길이 있었어요.</div>
+            <div class="slide-body">음악이 좋아서 시작한 일인데<br>어느 순간 혼자 고민하는 시간이 길어졌어요.<br>잘하고 싶은 마음만으로 어디까지 갈 수 있을까.</div>
+            <div class="slide-body" style="margin-top:18px;">오랜 고민 끝에 필요했던 건 <b>환경의 변화</b>였어요.<br>누군가의 경험을 듣다 보면 길이 보이고,<br>내 경험도 누군가에게는 힌트가 되더라고요.</div>
+            <div class="slide-body" style="margin-top:18px;">그렇게 시작한 오프라인 모임이 세 번째를 맞아<br>새 이름을 갖게 되었어요.</div>
+            <div style="margin-top:32px; padding-top:24px; border-top:1px solid #eee;">
+              <div style="font-size:22px; font-weight:900; letter-spacing:0.08em; margin-bottom:10px;">SALONNE</div>
+              <div style="font-size:14px; font-weight:300; line-height:1.8; color:#3A3A3A;">살롱처럼 편안하게, 그러나 밀도 깊게.<br>예술을 업으로 삼은 사람들이 연결되는 자리입니다.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 슬라이드 3: 깨달음 -->
+        <div class="salonne-slide" id="slide-3">
+          <div class="slide-page">
+            <div class="slide-eyebrow">What I learned</div>
+            <div class="slide-h">환경을 바꾸며<br>깨닫게 된 세 가지</div>
+            <div class="slide-num"><div class="n">1</div><div class="text">혼자서는 절대 멀리 못 간다.</div></div>
+            <div class="slide-num"><div class="n">2</div><div class="text">좋은 사람들과 함께하면 반은 간다.</div></div>
+            <div class="slide-num"><div class="n">3</div><div class="text">어떤 일이든 꾸준함이 제일 중요하다.</div></div>
+            <div style="margin-top:28px; padding:18px 20px; background:#f8f8f8; border-radius:12px; font-size:15px; font-weight:500; line-height:1.7;">
+              좋은 환경에 자주 머물수록<br><span style="border-bottom:2px solid #E2553A; padding-bottom:3px;">더 멀리, 더 오래</span> 달리게 됩니다.
+            </div>
+          </div>
+        </div>
+
+        <!-- 슬라이드 4: 이런 분과 함께 -->
+        <div class="salonne-slide" id="slide-4">
+          <div class="slide-page">
+            <div class="slide-eyebrow">With you</div>
+            <div class="slide-h">이런 분과 함께하고 싶어요</div>
+            <ul class="slide-list">
+              <li>개인레슨을 하고 있는 선생님</li>
+              <li>예술을 업으로 삼은 프리랜서</li>
+              <li>진로를 고민하는 음대생 · 예비 선생님</li>
+              <li>혼자 고민하는 시간이 길어진 분</li>
+              <li>예술 관련 사업 종사자</li>
+            </ul>
+            <div style="margin-top:24px; font-size:14px; font-weight:300; line-height:1.9; color:#5C5C5C;">처음이어도, 혼자 오셔도 괜찮아요.<br>모두 같은 고민에서 출발했으니까요.</div>
+          </div>
+        </div>
+
+        <!-- 슬라이드 5: 지난 모임 -->
+        <div class="salonne-slide" id="slide-5">
+          <div class="slide-page">
+            <div class="slide-eyebrow">Moments</div>
+            <div class="slide-h">지난 모임의 한 장면</div>
+            <div style="background:#f0eeeb; border-radius:12px; height:200px; display:flex; align-items:center; justify-content:center; margin-bottom:24px; color:#999; font-size:13px;">📸 지난 모임 사진</div>
+            <div style="font-size:16px; font-weight:500; line-height:1.7;">음악을 좋아하는 마음이<br>지속 가능한 성장으로 이어지도록.</div>
+          </div>
+        </div>
+
+        <!-- 슬라이드 6: FAQ -->
+        <div class="salonne-slide" id="slide-6">
+          <div class="slide-page">
+            <div class="slide-eyebrow">Q &amp; A</div>
+            <div class="slide-h">이런 게 궁금하시죠?</div>
+            <div class="slide-qa"><div class="q"><span>Q.</span>처음 참여해도 어색하지 않을까요?</div><div class="a">자기소개부터 천천히 시작해요. 처음 오신 분도 자연스럽게 대화에 섞일 수 있도록 진행합니다.</div></div>
+            <div class="slide-qa"><div class="q"><span>Q.</span>혼자 신청해도 괜찮나요?</div><div class="a">그럼요. 혼자 와서 새로운 동료를 만들어 가는 자리예요.</div></div>
+            <div class="slide-qa"><div class="q"><span>Q.</span>피아노 선생님만 참여할 수 있나요?</div><div class="a">악기와 장르 상관없이, 예술을 업으로 삼고 있거나 준비하고 있는 분이라면 누구나 환영해요.</div></div>
+            <div class="slide-qa"><div class="q"><span>Q.</span>경력이 짧아도 괜찮을까요?</div><div class="a">막 시작한 분부터 오래 일해 온 분까지 함께할 때 대화가 가장 풍성해져요.</div></div>
+            <div class="slide-qa"><div class="q"><span>Q.</span>어떤 이야기를 나누나요?</div><div class="a">수업 운영, 학생·학부모와의 관계, 홍보, 수업 자료, 진로까지. 혼자서는 묻기 어려웠던 이야기들이요.</div></div>
+            <div class="slide-qa"><div class="q"><span>Q.</span>정확한 장소는 어디인가요?</div><div class="a">강남·신논현 인근이에요. 상세 주소는 추후 따로 안내드려요.</div></div>
+          </div>
+        </div>
+
+        <!-- 슬라이드 7: 타임테이블 -->
+        <div class="salonne-slide" id="slide-7">
+          <div class="slide-page">
+            <div class="slide-eyebrow">Time Table</div>
+            <div class="slide-h" style="margin-bottom:8px;">이렇게 진행돼요</div>
+            <div style="font-size:13px; color:#888; margin-bottom:20px;">18:00 — 22:00</div>
+            <div class="slide-timetable">
+              <div class="slide-time-row"><div class="time">18:00 – 18:20</div><div class="prog"><div class="prog-title">자기소개 · 아이스브레이킹</div><div class="prog-desc">서로의 일과 요즘 고민을 가볍게 나누며 시작해요</div></div></div>
+              <div class="slide-time-row"><div class="time">18:20 – 19:20</div><div class="prog"><div class="prog-title">예술로 수익 파이프라인을 만든 방법</div><div class="prog-desc">레슨에서 시작해 수익 구조를 하나씩 넓혀 온 과정</div></div></div>
+              <div class="slide-time-row"><div class="time">19:20 – 20:00</div><div class="prog"><div class="prog-title">사전 질문 Q&A</div><div class="prog-desc">미리 받은 질문에 하나씩 답해 드려요</div></div></div>
+              <div class="slide-time-row"><div class="time">20:00 – 20:30</div><div class="prog"><div class="prog-title">나만의 수업 콘텐츠 · 교수법 기획</div><div class="prog-desc">내 수업만의 강점을 찾아 콘텐츠로 그려 봐요</div></div></div>
+              <div class="slide-time-row"><div class="time">20:30 – 21:00</div><div class="prog"><div class="prog-title">개별 피드백</div><div class="prog-desc">기획한 내용에 한 분 한 분 피드백을 드려요</div></div></div>
+              <div class="slide-time-row"><div class="time">21:00 – 21:45</div><div class="prog"><div class="prog-title">음악 수업 교수법 나눔</div><div class="prog-desc">현장에서 바로 써먹을 수 있는 교수법을 함께 나눠요</div></div></div>
+              <div class="slide-time-row"><div class="time">21:45 – 22:00</div><div class="prog"><div class="prog-title">마무리</div><div class="prog-desc">오늘의 생각을 한 줄로 정리하며 닫아요</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 슬라이드 8: 모임 안내 · 신청 방법 -->
+        <div class="salonne-slide" id="slide-8">
+          <div class="slide-page">
+            <div class="slide-eyebrow">Information</div>
+            <div class="slide-h">모임 안내</div>
+            <div class="slide-price-row">
+              <div><div class="slide-price-label">일시</div></div>
+              <div style="font-size:14px; font-weight:500; text-align:right;">2026년 12월 5일 토요일 오후 6시</div>
+            </div>
+            <div class="slide-price-row">
+              <div><div class="slide-price-label">장소</div></div>
+              <div style="text-align:right;"><div style="font-size:14px; font-weight:500;">강남 · 신논현</div><div style="font-size:12px; color:#999; margin-top:2px;">상세 주소 추후 공지</div></div>
+            </div>
+            <div style="padding:16px 0; border-bottom:1px solid #f0f0f0;">
+              <div class="slide-price-row" style="padding:0; border:none; margin-bottom:10px;">
+                <div><div class="slide-price-label">얼리버드</div><div class="slide-price-sub" style="color:#E2553A;">10월 31일까지</div></div>
+                <div class="slide-price-amount early">30,000원</div>
+              </div>
+              <div class="slide-price-row" style="padding:0; border:none; margin-bottom:10px;">
+                <div><div class="slide-price-label">대학생</div><div class="slide-price-sub">학생증 증빙 필수</div></div>
+                <div class="slide-price-amount">20,000원</div>
+              </div>
+              <div class="slide-price-row" style="padding:0; border:none;">
+                <div style="color:#999;"><div class="slide-price-label">정가</div></div>
+                <div class="slide-price-amount" style="color:#999; font-size:18px;">35,000원</div>
+              </div>
+            </div>
+            <div class="slide-info-box" style="margin-bottom:20px;">저녁 식사는 제공되지 않으며, 간단한 다과가 준비될 예정입니다.</div>
+            <div style="font-size:15px; font-weight:700; margin-bottom:14px;">신청 방법</div>
+            <div class="slide-step-row"><div class="slide-step-num">01</div><div><div class="slide-step-text">신청폼 작성</div><div class="slide-step-sub">네이버 신청폼에 정보를 남겨주세요</div></div></div>
+            <div class="slide-step-row"><div class="slide-step-num">02</div><div><div class="slide-step-text">참가비 입금</div><div class="slide-step-sub">신청폼에 안내된 계좌로 입금해 주세요</div></div></div>
+            <div class="slide-step-row"><div class="slide-step-num">03</div><div><div class="slide-step-text">신청 완료</div><div class="slide-step-sub">입금이 확인되면 신청이 완료돼요</div></div></div>
+            <div class="slide-info-box">
+              · 신청은 <b style="color:#1a1a1a;">입금 순</b>으로 마감돼요.<br>
+              · 얼리버드 혜택은 <b style="color:#E2553A;">조기 마감</b>될 수 있어요.<br>
+              · 대학생 혜택은 학생증 확인 후 적용돼요.<br>
+              · 상세 주소는 신청하신 분께 추후 안내드려요.
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- 하단 네비게이션 -->
+      <div class="salonne-detail-nav">
+        <button id="prevBtn" onclick="changeSlide(-1)" disabled>← 이전</button>
+        <a href="https://naver.me/xUZ9ZoIC" target="_blank" class="salonne-detail-nav apply-nav" style="padding:10px 20px; border-radius:10px; font-size:14px; font-weight:700; text-decoration:none;">신청하기</a>
+        <button id="nextBtn" onclick="changeSlide(1)">다음 →</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var currentSlide = 1;
+    var totalSlides = 8;
+
+    // 자동 팝업
+    window.addEventListener('load', function() {
+      var dismissed = localStorage.getItem('salonne_cover_dismissed');
+      if (!dismissed) {
+        document.getElementById('salonneCoverPopup').classList.add('active');
+      }
+    });
+
+    function closeSalonneCover() {
+      document.getElementById('salonneCoverPopup').classList.remove('active');
+      var today = new Date().toDateString();
+      localStorage.setItem('salonne_cover_dismissed', today);
+    }
+
+    function closeCoverOpenDetail() {
+      document.getElementById('salonneCoverPopup').classList.remove('active');
+      openSalonneDetail();
+    }
+
+    function openSalonneDetail() {
+      currentSlide = 1;
+      updateSlideUI();
+      document.getElementById('salonneDetailModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSalonneDetail() {
+      document.getElementById('salonneDetailModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function changeSlide(dir) {
+      var next = currentSlide + dir;
+      if (next < 1 || next > totalSlides) return;
+      document.getElementById('slide-' + currentSlide).classList.remove('active');
+      currentSlide = next;
+      document.getElementById('slide-' + currentSlide).classList.add('active');
+      // 슬라이드 영역 상단으로 스크롤
+      var slidesEl = document.querySelector('.salonne-slides');
+      if (slidesEl) slidesEl.scrollTop = 0;
+      updateSlideUI();
+    }
+
+    function updateSlideUI() {
+      document.getElementById('slideCounter').textContent = currentSlide + ' / ' + totalSlides;
+      document.getElementById('progressFill').style.width = (currentSlide / totalSlides * 100) + '%';
+      document.getElementById('prevBtn').disabled = currentSlide === 1;
+      document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+    }
+
+    // 오버레이 클릭으로 닫기
+    document.getElementById('salonneDetailModal').addEventListener('click', function(e) {
+      if (e.target === this) closeSalonneDetail();
+    });
+    document.getElementById('salonneCoverPopup').addEventListener('click', function(e) {
+      if (e.target === this) {
+        var today = new Date().toDateString();
+        localStorage.setItem('salonne_cover_dismissed', today);
+        this.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 </html>
