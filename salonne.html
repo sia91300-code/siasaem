@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SALONNE · 제 3회 시아쌤 네트워킹 모임</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: #fff; color: #1a1a1a; }
+
+    /* 상단 헤더 */
+    .page-header {
+      background: #111;
+      color: #fff;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .page-header a { color: #fff; text-decoration: none; font-size: 14px; opacity: 0.7; }
+    .page-header a:hover { opacity: 1; }
+    .page-header-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; color: #E2553A; }
+
+    /* 상단 신청 버튼 (고정) */
+    .sticky-apply {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+    }
+    .sticky-apply a {
+      display: inline-block;
+      background: #E2553A;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(226,85,58,0.4);
+      letter-spacing: 0.03em;
+    }
+
+    /* 각 섹션 공통 */
+    .section { padding: 48px 24px; border-bottom: 1px solid #f0f0f0; max-width: 560px; margin: 0 auto; }
+    .eyebrow { font-size: 12px; font-style: italic; color: #E2553A; font-weight: 400; letter-spacing: 0.05em; margin-bottom: 10px; }
+    .section-title { font-size: 26px; font-weight: 900; line-height: 1.35; margin-bottom: 20px; }
+    .body-text { font-size: 15px; font-weight: 300; line-height: 1.9; color: #3A3A3A; }
+
+    /* 커버 섹션 */
+    .cover-section {
+      background: #111;
+      color: #fff;
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .cover-sub { font-size: 11px; letter-spacing: 0.3em; font-weight: 300; color: #aaa; margin-bottom: 16px; }
+    .cover-logo { font-size: 40px; font-weight: 900; letter-spacing: 0.2em; color: #fff; margin-bottom: 16px; }
+    .cover-line { width: 40px; height: 1px; background: #E2553A; margin: 0 auto 20px; }
+    .cover-slogan { font-size: 18px; font-weight: 300; line-height: 1.8; color: #ddd; margin-bottom: 28px; }
+    .cover-date { font-size: 14px; font-weight: 500; color: #bbb; margin-bottom: 6px; letter-spacing: 0.1em; }
+    .cover-location { font-size: 13px; color: #888; letter-spacing: 0.05em; }
+
+    /* 가격 칩 */
+    .price-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; justify-content: center; }
+    .price-chip { font-size: 12px; font-weight: 500; padding: 7px 14px; border-radius: 50px; background: #222; color: #ccc; border: 1px solid #333; }
+    .price-chip.hot { background: rgba(226,85,58,0.15); color: #E2553A; border-color: rgba(226,85,58,0.3); }
+
+    /* 번호 리스트 */
+    .num-list { margin-top: 8px; }
+    .num-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid #f5f5f5; }
+    .num-item:last-child { border-bottom: none; }
+    .num-n { font-size: 26px; font-weight: 900; color: #E2553A; line-height: 1; min-width: 28px; }
+    .num-text { font-size: 16px; font-weight: 500; line-height: 1.5; padding-top: 4px; }
+
+    /* 불릿 리스트 */
+    .bullet-list { list-style: none; margin-top: 8px; }
+    .bullet-list li { padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 15px; font-weight: 400; line-height: 1.6; padding-left: 16px; position: relative; }
+    .bullet-list li:last-child { border-bottom: none; }
+    .bullet-list li::before { content: "·"; position: absolute; left: 0; color: #E2553A; font-weight: 700; }
+
+    /* 지난 모임 사진 */
+    .moments-img { width: 100%; border-radius: 14px; display: block; margin-bottom: 20px; }
+    .moments-caption { font-size: 16px; font-weight: 500; line-height: 1.7; color: #3A3A3A; }
+
+    /* Q&A */
+    .qa-item { padding: 18px 0; border-bottom: 1px solid #f0f0f0; }
+    .qa-item:last-child { border-bottom: none; }
+    .qa-q { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+    .qa-q span { color: #E2553A; margin-right: 4px; }
+    .qa-a { font-size: 14px; font-weight: 300; line-height: 1.75; color: #5C5C5C; }
+
+    /* 타임테이블 */
+    .time-row { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #f5f5f5; }
+    .time-row:last-child { border-bottom: none; }
+    .time-label { font-size: 12px; color: #999; font-weight: 400; min-width: 90px; line-height: 1.5; padding-top: 2px; }
+    .time-prog-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+    .time-prog-desc { font-size: 13px; font-weight: 300; color: #888; line-height: 1.5; }
+
+    /* 모임 안내 */
+    .info-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
+    .info-row:last-child { border-bottom: none; }
+    .info-label { font-size: 14px; font-weight: 700; }
+    .info-value { font-size: 14px; font-weight: 400; text-align: right; }
+    .info-sub { font-size: 12px; color: #999; margin-top: 2px; }
+    .price-amount { font-size: 22px; font-weight: 700; }
+    .price-amount.early { color: #E2553A; }
+
+    /* 신청 방법 */
+    .step-row { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #f5f5f5; }
+    .step-row:last-child { border-bottom: none; }
+    .step-num { width: 32px; height: 32px; background: #E2553A; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .step-title { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+    .step-sub { font-size: 13px; font-weight: 300; color: #888; }
+
+    /* 안내 박스 */
+    .info-box { background: #f8f8f8; border-radius: 12px; padding: 16px 18px; font-size: 13px; font-weight: 300; line-height: 1.9; color: #5C5C5C; margin-top: 16px; }
+
+    /* 하단 신청 섹션 */
+    .apply-section { padding: 48px 24px 100px; text-align: center; max-width: 560px; margin: 0 auto; }
+    .apply-section p { font-size: 14px; color: #888; margin-bottom: 20px; line-height: 1.7; }
+    .apply-btn-large {
+      display: inline-block;
+      background: #E2553A;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 56px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 헤더 -->
+  <div class="page-header">
+    <a href="/">← 시아쌤 홈</a>
+    <div class="page-header-title">SALONNE</div>
+    <a href="https://naver.me/xUZ9ZoIC" target="_blank" style="background:#E2553A; padding:7px 16px; border-radius:20px; font-size:13px; font-weight:700; opacity:1;">신청하기</a>
+  </div>
+
+  <!-- 커버 -->
+  <div class="cover-section">
+    <div class="cover-sub">THE 3RD GATHERING</div>
+    <div class="cover-logo">SALONNE</div>
+    <div class="cover-line"></div>
+    <div class="cover-slogan">예술을 업으로,<br>성장을 일상으로</div>
+    <div class="cover-date">2026. 12. 5  SAT  6PM</div>
+    <div class="cover-location">강남 · 신논현</div>
+    <div class="price-chips">
+      <span class="price-chip hot">얼리버드 30,000원 (~10/31)</span>
+      <span class="price-chip">대학생 20,000원</span>
+      <span class="price-chip">정가 35,000원</span>
+    </div>
+  </div>
+
+  <!-- Why SALONNE -->
+  <div class="section">
+    <div class="eyebrow">Why SALONNE</div>
+    <div class="section-title">혼자 고민할 때는<br>보이지 않던 길이 있었어요.</div>
+    <div class="body-text">음악이 좋아서 시작한 일인데<br>어느 순간 혼자 고민하는 시간이 길어졌어요.<br>잘하고 싶은 마음만으로 어디까지 갈 수 있을까.</div>
+    <div class="body-text" style="margin-top:18px;">오랜 고민 끝에 필요했던 건 <b>환경의 변화</b>였어요.<br>누군가의 경험을 듣다 보면 길이 보이고,<br>내 경험도 누군가에게는 힌트가 되더라고요.</div>
+    <div class="body-text" style="margin-top:18px;">그렇게 시작한 오프라인 모임이 세 번째를 맞아<br>새 이름을 갖게 되었어요.</div>
+    <div style="margin-top:32px; padding-top:24px; border-top:1px solid #eee;">
+      <div style="font-size:22px; font-weight:900; letter-spacing:0.08em; margin-bottom:10px;">SALONNE</div>
+      <div class="body-text">살롱처럼 편안하게, 그러나 밀도 깊게.<br>예술을 업으로 삼은 사람들이 연결되는 자리입니다.</div>
+    </div>
+  </div>
+
+  <!-- 깨달음 -->
+  <div class="section">
+    <div class="eyebrow">What I learned</div>
+    <div class="section-title">환경을 바꾸며<br>깨닫게 된 세 가지</div>
+    <div class="num-list">
+      <div class="num-item"><div class="num-n">1</div><div class="num-text">혼자서는 절대 멀리 못 간다.</div></div>
+      <div class="num-item"><div class="num-n">2</div><div class="num-text">좋은 사람들과 함께하면 반은 간다.</div></div>
+      <div class="num-item"><div class="num-n">3</div><div class="num-text">어떤 일이든 꾸준함이 제일 중요하다.</div></div>
+    </div>
+    <div style="margin-top:24px; padding:18px 20px; background:#f8f8f8; border-radius:12px; font-size:15px; font-weight:500; line-height:1.7;">
+      좋은 환경에 자주 머물수록<br><span style="border-bottom:2px solid #E2553A; padding-bottom:3px;">더 멀리, 더 오래</span> 달리게 됩니다.
+    </div>
+  </div>
+
+  <!-- 이런 분과 -->
+  <div class="section">
+    <div class="eyebrow">With you</div>
+    <div class="section-title">이런 분과 함께하고 싶어요</div>
+    <ul class="bullet-list">
+      <li>개인레슨을 하고 있는 선생님</li>
+      <li>예술을 업으로 삼은 프리랜서</li>
+      <li>진로를 고민하는 음대생 · 예비 선생님</li>
+      <li>혼자 고민하는 시간이 길어진 분</li>
+      <li>예술 관련 사업 종사자</li>
+    </ul>
+    <div class="body-text" style="margin-top:20px;">처음이어도, 혼자 오셔도 괜찮아요.<br>모두 같은 고민에서 출발했으니까요.</div>
+  </div>
+
+  <!-- 지난 모임 -->
+  <div class="section">
+    <div class="eyebrow">Moments</div>
+    <div class="section-title">지난 모임의 한 장면</div>
+    <img src="./moments_photo.png" alt="지난 모임" class="moments-img">
+    <div class="moments-caption">음악을 좋아하는 마음이<br>지속 가능한 성장으로 이어지도록.</div>
+  </div>
+
+  <!-- Q&A -->
+  <div class="section">
+    <div class="eyebrow">Q &amp; A</div>
+    <div class="section-title">이런 게 궁금하시죠?</div>
+    <div class="qa-item"><div class="qa-q"><span>Q.</span>처음 참여해도 어색하지 않을까요?</div><div class="qa-a">자기소개부터 천천히 시작해요. 처음 오신 분도 자연스럽게 대화에 섞일 수 있도록 진행합니다.</div></div>
+    <div class="qa-item"><div class="qa-q"><span>Q.</span>혼자 신청해도 괜찮나요?</div><div class="qa-a">그럼요. 혼자 와서 새로운 동료를 만들어 가는 자리예요.</div></div>
+    <div class="qa-item"><div class="qa-q"><span>Q.</span>피아노 선생님만 참여할 수 있나요?</div><div class="qa-a">악기와 장르 상관없이, 예술을 업으로 삼고 있거나 준비하고 있는 분이라면 누구나 환영해요.</div></div>
+    <div class="qa-item"><div class="qa-q"><span>Q.</span>경력이 짧아도 괜찮을까요?</div><div class="qa-a">막 시작한 분부터 오래 일해 온 분까지 함께할 때 대화가 가장 풍성해져요.</div></div>
+    <div class="qa-item"><div class="qa-q"><span>Q.</span>어떤 이야기를 나누나요?</div><div class="qa-a">수업 운영, 학생·학부모와의 관계, 홍보, 수업 자료, 진로까지. 혼자서는 묻기 어려웠던 이야기들이요.</div></div>
+    <div class="qa-item"><div class="qa-q"><span>Q.</span>정확한 장소는 어디인가요?</div><div class="qa-a">강남·신논현 인근이에요. 상세 주소는 추후 따로 안내드려요.</div></div>
+  </div>
+
+  <!-- 타임테이블 -->
+  <div class="section">
+    <div class="eyebrow">Time Table</div>
+    <div class="section-title" style="margin-bottom:6px;">이렇게 진행돼요</div>
+    <div style="font-size:13px; color:#888; margin-bottom:20px;">18:00 — 22:00</div>
+    <div class="time-row"><div class="time-label">18:00 – 18:20</div><div><div class="time-prog-title">자기소개 · 아이스브레이킹</div><div class="time-prog-desc">서로의 일과 요즘 고민을 가볍게 나누며 시작해요</div></div></div>
+    <div class="time-row"><div class="time-label">18:20 – 19:20</div><div><div class="time-prog-title">예술로 수익 파이프라인을 만든 방법</div><div class="time-prog-desc">레슨에서 시작해 수익 구조를 하나씩 넓혀 온 과정</div></div></div>
+    <div class="time-row"><div class="time-label">19:20 – 20:00</div><div><div class="time-prog-title">사전 질문 Q&A</div><div class="time-prog-desc">미리 받은 질문에 하나씩 답해 드려요</div></div></div>
+    <div class="time-row"><div class="time-label">20:00 – 20:30</div><div><div class="time-prog-title">나만의 수업 콘텐츠 · 교수법 기획</div><div class="time-prog-desc">내 수업만의 강점을 찾아 콘텐츠로 그려 봐요</div></div></div>
+    <div class="time-row"><div class="time-label">20:30 – 21:00</div><div><div class="time-prog-title">개별 피드백</div><div class="time-prog-desc">기획한 내용에 한 분 한 분 피드백을 드려요</div></div></div>
+    <div class="time-row"><div class="time-label">21:00 – 21:45</div><div><div class="time-prog-title">음악 수업 교수법 나눔</div><div class="time-prog-desc">현장에서 바로 써먹을 수 있는 교수법을 함께 나눠요</div></div></div>
+    <div class="time-row"><div class="time-label">21:45 – 22:00</div><div><div class="time-prog-title">마무리</div><div class="time-prog-desc">오늘의 생각을 한 줄로 정리하며 닫아요</div></div></div>
+  </div>
+
+  <!-- 모임 안내 & 신청 방법 -->
+  <div class="section">
+    <div class="eyebrow">Information</div>
+    <div class="section-title">모임 안내</div>
+    <div class="info-row">
+      <div class="info-label">일시</div>
+      <div class="info-value">2026년 12월 5일 토요일 오후 6시</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">장소</div>
+      <div class="info-value">강남 · 신논현<div class="info-sub">상세 주소 추후 공지</div></div>
+    </div>
+    <div class="info-row">
+      <div><div class="info-label">얼리버드</div><div class="info-sub" style="color:#E2553A;">10월 31일까지</div></div>
+      <div class="price-amount early">30,000원</div>
+    </div>
+    <div class="info-row">
+      <div><div class="info-label">대학생</div><div class="info-sub">학생증 증빙 필수</div></div>
+      <div class="price-amount">20,000원</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label" style="color:#999;">정가</div>
+      <div class="price-amount" style="color:#999; font-size:18px;">35,000원</div>
+    </div>
+    <div class="info-box">저녁 식사는 제공되지 않으며, 간단한 다과가 준비될 예정입니다.</div>
+
+    <div style="margin-top:36px; margin-bottom:16px; font-size:17px; font-weight:700;">신청 방법</div>
+    <div class="step-row"><div class="step-num">01</div><div><div class="step-title">신청폼 작성</div><div class="step-sub">네이버 신청폼에 정보를 남겨주세요</div></div></div>
+    <div class="step-row"><div class="step-num">02</div><div><div class="step-title">참가비 입금</div><div class="step-sub">신청폼에 안내된 계좌로 입금해 주세요</div></div></div>
+    <div class="step-row"><div class="step-num">03</div><div><div class="step-title">신청 완료</div><div class="step-sub">입금이 확인되면 신청이 완료돼요</div></div></div>
+    <div class="info-box">
+      · 신청은 <b style="color:#1a1a1a;">입금 순</b>으로 마감돼요.<br>
+      · 얼리버드 혜택은 <b style="color:#E2553A;">조기 마감</b>될 수 있어요.<br>
+      · 대학생 혜택은 학생증 확인 후 적용돼요.<br>
+      · 상세 주소는 신청하신 분께 추후 안내드려요.
+    </div>
+  </div>
+
+  <!-- 최하단 신청 -->
+  <div class="apply-section">
+    <p>얼리버드 마감 전에 신청하세요 🙌<br>10월 31일까지 30,000원</p>
+    <a href="https://naver.me/xUZ9ZoIC" target="_blank" class="apply-btn-large">신청하기 →</a>
+  </div>
+
+  <!-- 고정 하단 버튼 -->
+  <div class="sticky-apply">
+    <a href="https://naver.me/xUZ9ZoIC" target="_blank">신청하기 →</a>
+  </div>
+
+</body>
+</html>
